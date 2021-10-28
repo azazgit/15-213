@@ -1,0 +1,14 @@
+phase_5:
+what is type of the input?
+How long is the string?
+
+phase_6:
+what is the type of the input?
+There is a call to read_six_numbers. This gives us a clue that the type is int and there would be 6 numbers. Going through read_siz_numbers at inst 401480 a memory address is moved to esi. This address 0x4025c3 has %d %d %d %d %d %d format string, indicating that this is the 2nd arg to the  sscanf function. sscanf's 2nd argument goes in the rsi function, which is why rsi copy's that address.
+
+Where are my input numbers saved?
+1st input is saved at address 0x7fffffffde00. Inst 40111e compares 1st number with 5. If no is aabove 5, bomb explodes.40111e
+2nd input is saved at address 0x7fffffffde04. Inst 401138 copies input 2 from that address into eax. 4013b compares inputs 1 and 2. If they are equal explode bomb.
+3rd input is saved at address 0x7fffffffde08.....
+Instructions until 40114b check that the 1st input is less than 5 and that the rest
+

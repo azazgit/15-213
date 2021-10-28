@@ -1,0 +1,41 @@
+# Execution begins at address 0
+	.pos 0
+	irmovq stack, %rsp
+	call main
+	halt
+
+# Sample linked list
+	.align 8
+linked_list:	
+	ele1:
+		.quad 0x00a
+		.quad ele2
+	ele2:
+		.quad 0x0b0
+		.quad ele3
+	ele3:
+		.quad 0xc00
+		.quad 0
+
+main:
+	irmovq linked_list, %rdi
+	call sum_list 			# sum_list(linked_list) 
+	ret
+
+# long sum_list(list_ptr ls)
+# start in %rdi
+sum_list:
+	xorq %rax, %rax			# Set return value to 0.
+loop:
+	andq %rdi, %rdi			# Check if ls is a NULL pointer.
+	je end
+	mrmovq (%rdi), %r10		# Can only add reg to reg,... 
+	addq %r10, %rax			# ... so transfer to %r10 first.
+	mrmovq 8(%rdi), %rdi		# Point to ele2.
+	jmp loop
+end:
+	ret
+
+# Stack starts here and grows to lower addresses.
+	.pos 0x200
+stack:
